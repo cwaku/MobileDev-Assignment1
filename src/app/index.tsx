@@ -1,6 +1,8 @@
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import {
+  Alert,
+  Button,
   Image,
   SafeAreaView,
   ScrollView,
@@ -93,6 +95,18 @@ function PhotoGrid() {
   );
 }
 
+function TabBar() {
+  return (
+    <View style={styles.tabBar}>
+      <Ionicons name="home" size={26} color="#000" />
+      <Ionicons name="search" size={26} color="#000" />
+      <Ionicons name="albums-outline" size={26} color="#000" />
+      <Ionicons name="bag-outline" size={26} color="#000" />
+      <Ionicons name="person-circle-outline" size={28} color="#000" />
+    </View>
+  );
+}
+
 export default function Index() {
   return (
     <SafeAreaView style={styles.container}>
@@ -100,7 +114,14 @@ export default function Index() {
       <ScrollView showsVerticalScrollIndicator={false}>
         <ProfileStats />
         <PhotoGrid />
+        <View style={styles.alertButton}>
+          <Button
+            title="Alert"
+            onPress={() => Alert.alert("Alert Button pressed")}
+          />
+        </View>
       </ScrollView>
+      <TabBar />
     </SafeAreaView>
   );
 }
@@ -224,5 +245,17 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
     margin: "0.165%",
     backgroundColor: "#efefef",
+  },
+  alertButton: {
+    paddingHorizontal: 40,
+    paddingVertical: 20,
+  },
+  tabBar: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+    paddingVertical: 12,
+    borderTopWidth: 1,
+    borderTopColor: "#dbdbdb",
   },
 });
