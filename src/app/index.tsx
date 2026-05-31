@@ -1,6 +1,28 @@
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
-import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
+
+const GRID_IMAGES = [
+  require("../../assets/images/grid/1.jpg"),
+  require("../../assets/images/grid/2.jpg"),
+  require("../../assets/images/grid/3.jpg"),
+  require("../../assets/images/grid/4.jpg"),
+  require("../../assets/images/grid/5.jpg"),
+  require("../../assets/images/grid/6.jpg"),
+  require("../../assets/images/grid/7.jpg"),
+  require("../../assets/images/grid/8.jpg"),
+  require("../../assets/images/grid/9.jpg"),
+  require("../../assets/images/grid/10.jpg"),
+  require("../../assets/images/grid/11.jpg"),
+  require("../../assets/images/grid/12.jpg"),
+];
 
 function Header() {
   return (
@@ -61,12 +83,23 @@ function ProfileStats() {
   );
 }
 
+function PhotoGrid() {
+  return (
+    <View style={styles.grid}>
+      {GRID_IMAGES.map((src, i) => (
+        <Image key={i} source={src} style={styles.gridImage} />
+      ))}
+    </View>
+  );
+}
+
 export default function Index() {
   return (
     <SafeAreaView style={styles.container}>
       <Header />
       <ScrollView showsVerticalScrollIndicator={false}>
         <ProfileStats />
+        <PhotoGrid />
       </ScrollView>
     </SafeAreaView>
   );
@@ -180,5 +213,16 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     fontSize: 14,
     color: "#000",
+  },
+  grid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    marginTop: 16,
+  },
+  gridImage: {
+    width: "33.0%",
+    aspectRatio: 1,
+    margin: "0.165%",
+    backgroundColor: "#efefef",
   },
 });
