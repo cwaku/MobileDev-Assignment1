@@ -46,6 +46,17 @@ function ProfileStats() {
           <Stat number="1" label="Admins" />
         </View>
       </View>
+
+      <View style={styles.bio}>
+        <Text style={styles.bioTitle}>OOTD Everyday</Text>
+        <Text style={styles.bioText}>Fit check! 🧊</Text>
+        <Text style={styles.bioText}>You know we&apos;ll hype you up.</Text>
+      </View>
+
+      <View style={styles.memberButton}>
+        <Text style={styles.memberButtonText}>Member </Text>
+        <Ionicons name="chevron-down" size={16} color="#000" />
+      </View>
     </View>
   );
 }
@@ -140,6 +151,34 @@ const styles = StyleSheet.create({
   },
   statLabel: {
     fontSize: 13,
+    color: "#000",
+  },
+  bio: {
+    marginTop: 12,
+  },
+  bioTitle: {
+    fontWeight: "700",
+    fontSize: 14,
+    color: "#000",
+  },
+  bioText: {
+    fontSize: 14,
+    color: "#000",
+    lineHeight: 19,
+  },
+  memberButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 14,
+    paddingVertical: 8,
+    borderWidth: 1,
+    borderColor: "#dbdbdb",
+    borderRadius: 8,
+  },
+  memberButtonText: {
+    fontWeight: "600",
+    fontSize: 14,
     color: "#000",
   },
 });
